@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { BodySmall, PrimarySmall } from 'src/typography';
 
 const BookContainer = styled.div`
-  max-width: 124px;
+  max-width: 18vw;
+  margin: 16px;
 `;
 
 const BookCover = styled.img`
-  width: 124px;
+  width: fill-available;
   border-radius: 6px 12px 12px 6px;
 `;
 
