@@ -1,38 +1,21 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import styled from 'styled-components';
-
-// const ShelfContainer = styled.div`
-//   background-color: aquamarine;
-//   display: flex;
-//   overflow-x: scroll;
-//   &::-webkit-scrollbar {
-//     display: none;
-//   }
-//   // firefox
-//   scrollbar-width: none;
-// `;
-
-// const NavigationButton = styled.button`
-//   border-radius: 50%;
-//   width: 50px;
-//   height: 50px;
-//   border-style: none;
-//   background-color: #f1f7fc;
-// `;
+import rightArrowIcon from '../assets/right-arrow.svg';
+import leftArrowIcon from '../assets/left-arrow.svg';
 
 interface ShelfProps {
   children: JSX.Element[];
+  showNavigation: boolean;
 }
 
-// temporary slider implementation
 const SliderWrapper = styled.section`
+  width: 900px;
   margin: 1rem;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 
 const SlideContainer = styled.ul`
-  /* height: calc(100vh - 2rem); */
   width: 100%;
   display: flex;
   list-style: none;
@@ -48,13 +31,13 @@ const SlideContainer = styled.ul`
 const SlideButton = styled.button`
   position: absolute;
   display: flex;
-  top: 0;
+  top: -50px;
   bottom: 0;
   margin: auto;
-  height: 4rem;
-  background-color: aquamarine;
-  border: none;
-  width: 2rem;
+  width: 35px;
+  height: 35px;
+  background-color: #ffffff;
+  border: 1px solid #f1f7fc;
   font-size: 3rem;
   padding: 0;
   cursor: pointer;
@@ -62,40 +45,59 @@ const SlideButton = styled.button`
 `;
 
 const LeftSlideButton = styled(SlideButton)`
-  left: 0;
-  padding-left: 0.25rem;
-  border-radius: 0 2rem 2rem 0;
+  left: -16px;
+  padding-left: 0.75rem;
+  border-radius: 50%;
 `;
 
 const RightSlideButton = styled(SlideButton)`
-  right: 0;
+  right: -16px;
   padding-left: 0.75rem;
-  border-radius: 2rem 0 0 2rem;
+  border-radius: 50%;
 `;
 
-const Shelf = ({ children /*, showNavigation*/ }: ShelfProps) => {
+const ButtonIcon = styled.img`
+  align-self: center;
+`;
+
+const Shelf = ({ children, showNavigation }: ShelfProps) => {
   const sliderRef = useRef(null);
-  const [showLeftButton, setShowLeftButton] = useState(false);
+  const scrollAmount = 200;
+  // const [canScrollLeft, setCanScrollLeft] = useState(false);
+  // const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const showLeftButton = showNavigation;
+  const showRightButton = showNavigation;
 
   const handleRightButtonClick = useCallback(() => {
-    console.log('right button clicked');
+    sliderRef.current.scrollLeft += scrollAmount;
 
-    sliderRef.current.scrollLeft += 100;
-    setShowLeftButton(true);
+    if (sliderRef.current.scrollLeft >= sliderRef.current.scrollWidth) {
+      setCanScrollRight(false);
+    }
   }, []);
 
   const handleLeftButtonClick = useCallback(() => {
-    sliderRef.current.scrollLeft -= 100;
+    sliderRef.current.scrollLeft -= scrollAmount;
 
     if (sliderRef.current.scrollLeft <= 0) {
-      setShowLeftButton(false);
+      setCanScrollLeft(false);
     }
   }, []);
 
   return (
-    <SliderWrapper id="slider">
-      {showLeftButton && <LeftSlideButton onClick={handleLeftButtonClick}> &#8249;</LeftSlideButton>}
-      <RightSlideButton onClick={handleRightButtonClick}> &#8250;</RightSlideButton>
+    <SliderWrapper>
+      {showLeftButton && (
+        <LeftSlideButton onClick={handleLeftButtonClick}>
+          <ButtonIcon src={leftArrowIcon} />{' '}
+        </LeftSlideButton>
+      )}
+      {showRightButton && (
+        <RightSlideButton onClick={handleRightButtonClick}>
+          <ButtonIcon src={rightArrowIcon} alt="" />
+        </RightSlideButton>
+      )}
+
       <SlideContainer ref={sliderRef}>{children}</SlideContainer>
     </SliderWrapper>
   );
