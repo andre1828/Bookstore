@@ -43,6 +43,9 @@ const defaultTheme = {
     fontWeight: 600,
     fontSize: '28px',
     color: '#A977D8'
+  },
+  Highlight: {
+    backgroundColor: '#DAF6F3'
   }
 };
 
