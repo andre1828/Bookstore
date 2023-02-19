@@ -2,17 +2,23 @@ import { useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import rightArrowIcon from '../assets/right-arrow.svg';
 import leftArrowIcon from '../assets/left-arrow.svg';
+import { PrimaryMedium } from 'src/typography';
 
 interface ShelfProps {
-  children: JSX.Element[];
+  title: string;
   showNavigation: boolean;
+  children: JSX.Element[];
 }
 
-const SliderWrapper = styled.section`
+const SliderWrapper = styled.article`
   width: 900px;
   margin: 1rem;
   position: relative;
   /* overflow: hidden; */
+`;
+
+const Title = styled(PrimaryMedium)`
+  margin-left: inherit;
 `;
 
 const SlideContainer = styled.ul`
@@ -60,7 +66,7 @@ const ButtonIcon = styled.img`
   align-self: center;
 `;
 
-const Shelf = ({ children, showNavigation }: ShelfProps) => {
+const Shelf = ({ showNavigation, title, children }: ShelfProps) => {
   const sliderRef = useRef(null);
   const scrollAmount = 200;
   // const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -87,6 +93,7 @@ const Shelf = ({ children, showNavigation }: ShelfProps) => {
 
   return (
     <SliderWrapper>
+      <Title>{title}</Title>
       {showLeftButton && (
         <LeftSlideButton onClick={handleLeftButtonClick}>
           <ButtonIcon src={leftArrowIcon} />{' '}
