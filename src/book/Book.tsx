@@ -23,14 +23,19 @@ interface BookProps {
   cover: string;
   title: string;
   author: string;
+  isCoverOnly?: boolean;
 }
 
-const Book = ({ cover, title, author }: BookProps) => {
+const Book = ({ cover, title, author, isCoverOnly = false }: BookProps) => {
   return (
     <BookContainer>
-      <BookCover src={cover}></BookCover>
-      <BookTitle>{title}</BookTitle>
-      <BookAuthor>{author}</BookAuthor>
+      <BookCover src={cover} />
+      {!isCoverOnly && (
+        <>
+          <BookTitle>{title}</BookTitle>
+          <BookAuthor>{author}</BookAuthor>
+        </>
+      )}
     </BookContainer>
   );
 };
