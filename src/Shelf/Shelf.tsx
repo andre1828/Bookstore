@@ -6,19 +6,23 @@ import { PrimaryMedium } from 'src/typography';
 
 interface ShelfProps {
   title: string;
-  showNavigation: boolean;
+  isShowNavigation?: boolean;
+  isHighlighted?: boolean;
   children: JSX.Element[];
 }
 
 const SliderWrapper = styled.article`
   width: 900px;
-  margin: 1rem;
   position: relative;
-  /* overflow: hidden; */
+  background-color: ${(props) => (props.isHighlighted ? props.theme.Highlight.backgroundColor : '')};
 `;
 
 const Title = styled(PrimaryMedium)`
-  margin-left: inherit;
+  padding-top: 21px;
+  margin-left: 17px;
+  font-size: ${(props) =>
+    props.isHighlighted ? props.theme.PrimaryHighlight.fontSize : props.theme.PrimaryMedium.fontSize};
+  color: ${(props) => (props.isHighlighted ? props.theme.PrimaryHighlight.color : props.theme.PrimaryMedium.color)};
 `;
 
 const SlideContainer = styled.ul`
@@ -66,14 +70,14 @@ const ButtonIcon = styled.img`
   align-self: center;
 `;
 
-const Shelf = ({ showNavigation, title, children }: ShelfProps) => {
+const Shelf = ({ title, isShowNavigation = false, isHighlighted = false, children }: ShelfProps) => {
   const sliderRef = useRef(null);
   const scrollAmount = 200;
   // const [canScrollLeft, setCanScrollLeft] = useState(false);
   // const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const showLeftButton = showNavigation;
-  const showRightButton = showNavigation;
+  const showLeftButton = isShowNavigation;
+  const showRightButton = isShowNavigation;
 
   const handleRightButtonClick = useCallback(() => {
     sliderRef.current.scrollLeft += scrollAmount;
@@ -92,8 +96,8 @@ const Shelf = ({ showNavigation, title, children }: ShelfProps) => {
   }, []);
 
   return (
-    <SliderWrapper>
-      <Title>{title}</Title>
+    <SliderWrapper isHighlighted={isHighlighted}>
+      <Title isHighlighted={isHighlighted}>{title}</Title>
       {showLeftButton && (
         <LeftSlideButton onClick={handleLeftButtonClick}>
           <ButtonIcon src={leftArrowIcon} />{' '}
