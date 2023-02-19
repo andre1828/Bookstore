@@ -1,5 +1,5 @@
 interface BookCaseProps {
-  children: JSX.Element;
+  children: JSX.Element[];
 }
 
 const Bookcase = ({ children }: BookCaseProps) => {
