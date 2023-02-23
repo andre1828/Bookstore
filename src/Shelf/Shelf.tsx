@@ -11,9 +11,8 @@ interface ShelfProps {
   children: JSX.Element[];
 }
 
-const SliderWrapper = styled.article`
-  width: 900px;
-  position: relative;
+const ShelfWrapper = styled.article`
+  width: 100%;
   background-color: ${(props) => (props.isHighlighted ? props.theme.Highlight.backgroundColor : '')};
 `;
 
@@ -25,8 +24,8 @@ const Title = styled(PrimaryMedium)`
   color: ${(props) => (props.isHighlighted ? props.theme.PrimaryHighlight.color : props.theme.PrimaryMedium.color)};
 `;
 
-const SlideContainer = styled.ul`
-  width: 100%;
+const BookContainer = styled.ul`
+  max-width: 375px;
   display: flex;
   list-style: none;
   margin: 0;
@@ -54,13 +53,13 @@ const SlideButton = styled.button`
   transition: opacity 100ms;
 `;
 
-const LeftSlideButton = styled(SlideButton)`
+const LeftButton = styled(SlideButton)`
   left: -16px;
   padding-left: 0.75rem;
   border-radius: 50%;
 `;
 
-const RightSlideButton = styled(SlideButton)`
+const RightButton = styled(SlideButton)`
   right: -16px;
   padding-left: 0.75rem;
   border-radius: 50%;
@@ -96,21 +95,21 @@ const Shelf = ({ title, isShowNavigation = false, isHighlighted = false, childre
   }, []);
 
   return (
-    <SliderWrapper isHighlighted={isHighlighted}>
+    <ShelfWrapper isHighlighted={isHighlighted}>
       <Title isHighlighted={isHighlighted}>{title}</Title>
       {showLeftButton && (
-        <LeftSlideButton onClick={handleLeftButtonClick}>
+        <LeftButton onClick={handleLeftButtonClick}>
           <ButtonIcon src={leftArrowIcon} />{' '}
-        </LeftSlideButton>
+        </LeftButton>
       )}
       {showRightButton && (
-        <RightSlideButton onClick={handleRightButtonClick}>
+        <RightButton onClick={handleRightButtonClick}>
           <ButtonIcon src={rightArrowIcon} alt="" />
-        </RightSlideButton>
+        </RightButton>
       )}
 
-      <SlideContainer ref={sliderRef}>{children}</SlideContainer>
-    </SliderWrapper>
+      <BookContainer ref={sliderRef}>{children}</BookContainer>
+    </ShelfWrapper>
   );
 };
 
