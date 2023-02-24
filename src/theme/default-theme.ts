@@ -44,6 +44,11 @@ const defaultTheme = {
     fontSize: '28px',
     color: '#A977D8'
   },
+  Copyright: {
+    fontWeight: 500,
+    fontSize: '12.8px',
+    color: '#b2b4b9'
+  },
   Highlight: {
     backgroundColor: '#DAF6F3'
   }
