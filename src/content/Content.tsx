@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import StartPage from 'src/StartPage';
+import Search from 'src/search';
 
 const Container = styled.div`
   padding-bottom: 15%;
@@ -12,10 +13,9 @@ const Content = () => {
   return (
     <>
       <Container>
-        <p>Search</p>
+        <Search />
         {shouldShowStartPage ? <StartPage /> : <></>}
       </Container>
-      ;
     </>
   );
 };
