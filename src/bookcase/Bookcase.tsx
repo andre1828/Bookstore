@@ -1,5 +1,5 @@
 import Book from 'src/book/Book';
-import Shelf from 'src/Shelf';
+import Shelf from 'src/shelf';
 import cover from '../book/cover2.png';
 
 const Bookcase = () => {
