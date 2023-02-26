@@ -4,6 +4,7 @@ import Book from 'src/book';
 import cover from '../book/cover2.png';
 import { PrimaryMedium } from 'src/typography';
 import Filter from 'src/filter';
+import Button from 'src/button';
 
 const Container = styled.div`
   display: flex;
@@ -17,31 +18,10 @@ const ResultText = styled(PrimaryMedium)`
   margin-top: 0px;
 `;
 
-const FilterButton = styled.div`
-  width: 90%;
-  height: 55px;
-  background-color: #8553f4;
-  font-weight: 600;
-  font-size: 16px;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-
-  display: flex;
-  align-content: baseline;
-  justify-content: center;
-  flex-wrap: wrap;
-`;
-
 const VerticalShelf = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`;
-
-const FilterIcon = styled.img`
-  width: 13px;
-  padding-right: 5px;
 `;
 
 const FilterableBookshelf = () => {
@@ -49,9 +29,9 @@ const FilterableBookshelf = () => {
     <Container>
       <Filter />
       <ResultText>Resultados para &quot;Menino&quot;: </ResultText>
-      <FilterButton role="button">
-        <FilterIcon src={filterIcon} alt="" /> <p>FILTRAR</p>
-      </FilterButton>
+      <Button leftIcon={filterIcon} variant="primary">
+        FILTRAR
+      </Button>
       <VerticalShelf>
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isLarge />
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isLarge />
