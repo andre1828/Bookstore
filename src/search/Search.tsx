@@ -4,7 +4,7 @@ import magnifyingGlass from 'src/assets/magnifying-glass.svg';
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 23px auto 42px;
+  margin: 23px auto 36px;
   border: 1px solid #dee1e6;
   border-radius: 20px;
   width: 90%;
