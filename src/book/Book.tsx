@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { BodySmall, PrimarySmall } from 'src/typography';
 
 const BookContainer = styled.div`
-  max-width: 18vw;
-  margin: 16px;
+  max-width: ${(props) => (props.isLarge ? '36vw' : '18vw')};
+  margin: ${(props) => (props.isLarge ? '22px' : '16px')};
 `;
 
 const BookCover = styled.img`
@@ -24,11 +24,12 @@ interface BookProps {
   title: string;
   author: string;
   isCoverOnly?: boolean;
+  isLarge?: boolean;
 }
 
-const Book = ({ cover, title, author, isCoverOnly = false }: BookProps) => {
+const Book = ({ cover, title, author, isCoverOnly = false, isLarge = false }: BookProps) => {
   return (
-    <BookContainer>
+    <BookContainer isLarge={isLarge}>
       <BookCover src={cover} />
       {!isCoverOnly && (
         <>
