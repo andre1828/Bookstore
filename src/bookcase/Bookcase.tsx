@@ -10,6 +10,12 @@ const Bookcase = () => {
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
+        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
       </Shelf>
       <Shelf title="Ação">
         <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />

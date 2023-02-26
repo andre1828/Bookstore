@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import rightArrowIcon from '../assets/right-arrow.svg';
 import leftArrowIcon from '../assets/left-arrow.svg';
 import { PrimaryMedium } from 'src/typography';
+import useScreenSize from '../hooks/useScreenSize';
 
 interface ShelfProps {
   title: string;
@@ -11,8 +12,16 @@ interface ShelfProps {
   children: JSX.Element[];
 }
 
-const ShelfWrapper = styled.article`
+const ShelfWrapper = styled.article.attrs((props) => {
+  switch (props.screenSize) {
+    case 'medium':
+      return { paddingLeft: '35px' };
+    case 'large':
+      return { paddingLeft: '250px' };
+  }
+})`
   width: 100%;
+  padding-left: ${(props) => props.paddingLeft};
   background-color: ${(props) => (props.isHighlighted ? props.theme.Highlight.backgroundColor : '')};
 `;
 
@@ -24,8 +33,17 @@ const Title = styled(PrimaryMedium)`
   color: ${(props) => (props.isHighlighted ? props.theme.PrimaryHighlight.color : props.theme.PrimaryMedium.color)};
 `;
 
-const BookContainer = styled.ul`
-  max-width: 375px;
+const BookContainer = styled.ul.attrs((props) => {
+  switch (props.screenSize) {
+    case 'small':
+      return { maxWidth: '93vw' };
+    case 'medium':
+      return { maxWidth: '89vw' };
+    case 'large':
+      return { maxWidth: '72vw' };
+  }
+})`
+  max-width: ${(props) => props.maxWidth};
   display: flex;
   list-style: none;
   margin: 0;
@@ -94,8 +112,10 @@ const Shelf = ({ title, isShowNavigation = false, isHighlighted = false, childre
     }
   }, []);
 
+  const screenSize = useScreenSize();
+
   return (
-    <ShelfWrapper isHighlighted={isHighlighted}>
+    <ShelfWrapper isHighlighted={isHighlighted} screenSize={screenSize}>
       <Title isHighlighted={isHighlighted}>{title}</Title>
       {showLeftButton && (
         <LeftButton onClick={handleLeftButtonClick}>
@@ -108,7 +128,9 @@ const Shelf = ({ title, isShowNavigation = false, isHighlighted = false, childre
         </RightButton>
       )}
 
-      <BookContainer ref={sliderRef}>{children}</BookContainer>
+      <BookContainer ref={sliderRef} screenSize={screenSize}>
+        {children}
+      </BookContainer>
     </ShelfWrapper>
   );
 };
