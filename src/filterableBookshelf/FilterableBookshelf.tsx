@@ -3,7 +3,6 @@ import filterIcon from 'src/assets/filter.svg';
 import Book from 'src/book';
 import cover from '../book/cover2.png';
 import { PrimaryMedium } from 'src/typography';
-import Filter from 'src/filter';
 import Button from 'src/button';
 
 const Container = styled.div`
@@ -27,7 +26,6 @@ const VerticalShelf = styled.div`
 const FilterableBookshelf = () => {
   return (
     <Container>
-      <Filter />
       <ResultText>Resultados para &quot;Menino&quot;: </ResultText>
       <Button leftIcon={filterIcon} variant="primary">
         FILTRAR

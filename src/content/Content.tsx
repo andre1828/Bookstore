@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const Content = () => {
-  const [shouldShowStartPage] = useState(false);
+  const [shouldShowStartPage] = useState(true);
 
   return (
     <>
