@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div.attrs((props) => {
+export const Container = styled.div.attrs((props) => {
   if (props.variant === 'primary') {
     return {
       backgroundColor: '#8553f4',
@@ -58,7 +58,7 @@ const Button = ({ children, variant, leftIcon, rightIcon }: ButtonProps) => {
   return (
     <Container role="button" variant={variant}>
       {leftIcon && <LeftIcon src={leftIcon} />}
-      <p>{children}</p>
+      {children}
       {rightIcon && <RightIcon src={rightIcon} />}
     </Container>
   );
