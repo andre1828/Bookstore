@@ -6,21 +6,18 @@
 <!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4c695ce061c34c1bb1698acc19278f0e)](https://www.codacy.com/gh/pchmn/vite-react-ts-ghactions-template/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pchmn/vite-react-ts-ghactions-template&amp;utm_campaign=Badge_Grade) -->
 
 <!-- # React - TypeScript and Github Actions Template with Vite -->
-# Vite, React and Github Actions
+# Bookstore
 
-This a React v18 + TypeScript + Vitest and React Testing Library + Github Actions starter template built with Vite.
+This project is based on [this template](https://github.com/pchmn/vite-react-ts-ghactions-template).
 
-[Demo](https://pchmn.github.io/vite-react-ts-ghactions-template/)
-
-</div>
-
-## Features
-### Overview
+witch includes:
 
 - ⚡️&nbsp; [Vite](https://vitejs.dev/)
 - ⚛️&nbsp; [React v18](https://beta.reactjs.org/) with [TypeScript](https://www.typescriptlang.org/)
 - 🧪&nbsp; [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - 🚀&nbsp; [Github Actions](https://docs.github.com/en/actions) with deployment on [Github Pages](https://pages.github.com/)
+
+</div>
 
 ### Coding Style
 
@@ -44,26 +41,16 @@ This a React v18 + TypeScript + Vitest and React Testing Library + Github Action
 
 ## Getting Started
 
-### Copy template
-
-```
-npx degit pchmn/vite-react-ts-ghactions-template app_name
-```
-
-### Usage
-
-> Project was built using [`pnpm`](https://pnpm.io/installation#using-npm). If you want to use `npm` or `yarn`, just don't forget to update Github Actions workflow (`.github/workflows/ci.yml`).
-
 #### Install
 
 ```sh
-pnpm i
+yarn
 ```
 
 #### Dev
 
 ```sh
-pnpm dev
+yarn dev
 ```
 
 #### Build
@@ -71,25 +58,25 @@ pnpm dev
 
 ```sh
 # normal build
-pnpm build
+yarn build
 
 # build with 404.html file added for Github Pages included
-pnpm build:ci
+yarn build:ci
 ```
 > See explanation of `404.html` file [here](#github-pages)
 #### Test
 
 ```sh
 # without coverage
-pnpm test
+yarn test
 
 # with coverage
-pnpm test:ci
+yarn test:ci
 ```
 #### Serve
 
 ```sh
-pnpm serve
+yarn serve
 ```
 
 <br>
