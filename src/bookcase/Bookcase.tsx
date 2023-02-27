@@ -1,58 +1,15 @@
-import Book from 'src/book/Book';
-import Shelf from 'src/shelf';
-import cover from '../book/cover2.png';
+import AdventureShelf from 'src/adventureShelf';
+import ActionShelf from 'src/actionShelf';
+import HighlightsShelf from 'src/highlightsShelf';
+import ChildrenShelf from 'src/childrenShelf';
 
 const Bookcase = () => {
   return (
     <main>
-      <Shelf title="Aventura">
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-      </Shelf>
-      <Shelf title="Ação">
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-      </Shelf>
-      <Shelf isHighlighted title="Destaques">
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-      </Shelf>
-      <Shelf title="Infantil">
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-        <Book cover={cover} title="O menino Nelson Mandela" author="Viviana Mazza" isCoverOnly />
-      </Shelf>
+      <AdventureShelf />
+      <ActionShelf />
+      <HighlightsShelf />
+      <ChildrenShelf />
     </main>
   );
 };
